@@ -38,11 +38,12 @@ def show_accounts():
     print(f'+-{dash_complement}-+')
     if len(accounts) != 0:
         for account in accounts:
-            spaces_complement = ''
-            if max_account_len - len(account) >= 1:
-                for space in range(max_account_len - len(account)):
-                    spaces_complement = spaces_complement + ' '
-            print(f'| {account}{spaces_complement} |')
+            if os.path.isfile(f'data/accounts/{account}'):
+                spaces_complement = ''
+                if max_account_len - len(account) >= 1:
+                    for space in range(max_account_len - len(account)):
+                        spaces_complement = spaces_complement + ' '
+                print(f'| {account}{spaces_complement} |')
     else:
         print('|          |')
     print(f'+-{dash_complement}-+\n')
