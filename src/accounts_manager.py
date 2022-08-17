@@ -331,4 +331,3 @@ def remove_account(account_name):
         f"'{account_name}' account removed.\n"
     )
 
-show_accounts()
