@@ -20,8 +20,9 @@ def show_accounts():
     max_account_len = 0
     accounts = []
     for account in unfiltered_accounts:
-        if os.path.isfile(f'data/accounts/{account}'):
-            accounts.append(account)
+        if (os.path.isdir(f'data/accounts/{account}')):
+            if account != "others":
+                accounts.append(account)
 
     for account in accounts:
         if len(account) > max_account_len:
@@ -329,3 +330,5 @@ def remove_account(account_name):
         Style.NORMAL +
         f"'{account_name}' account removed.\n"
     )
+
+show_accounts()
